@@ -13,11 +13,9 @@ import org.openqa.selenium.WebElement;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import com.utils.AndroidActions;
 import com.utils.RetryUtils;
 
 import io.appium.java_client.AppiumBy;
-import io.appium.java_client.android.AndroidTouchAction;
 import pageObjects.android.CartPage;
 import pageObjects.android.FormPage;
 import pageObjects.android.ProductCataloguePage;
@@ -39,7 +37,7 @@ public class EcommerceTest extends BaseTest {
 		formPage.verifyErrorMeesage();
 	}
 
-	@Test(priority = 2, enabled = true)
+	@Test(priority = 2)
 	public void addToCart() {
 		driver.findElement(AppiumBy
 				.androidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text(\"Jordan 6 Rings\"));"));
@@ -54,7 +52,7 @@ public class EcommerceTest extends BaseTest {
 		driver.findElement(By.id("com.androidsample.generalstore:id/appbar_btn_cart")).click();
 	}
 
-	@Test(priority = 3, enabled = true)
+	@Test(priority = 3)
 	public void verifyCart() {
 		WebElement cartText = driver.findElement(By.id("com.androidsample.generalstore:id/toolbar_title"));
 		applyWait(cartText, driver, "text", "Cart");
@@ -96,7 +94,7 @@ public class EcommerceTest extends BaseTest {
 	@DataProvider(name = "dataProvider")
 	public Object[][] getData() throws IOException {
 		List<HashMap<String, String>> data = getJsonData(
-				"C:\\Users\\aviar\\eclipse-workspace\\AppiumFrameworkBuilding\\src\\test\\java\\tests\\android\\testData\\eCommerce.json");
+				System.getProperty("user.dir") + "\\src\\test\\java\\tests\\android\\testData\\eCommerce.json");
 		return new Object[][] { { data.get(0) } };
 	}
 }

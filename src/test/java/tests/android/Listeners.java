@@ -14,7 +14,6 @@ import com.utils.AppiumUtils;
 import io.appium.java_client.AppiumDriver;
 
 public class Listeners extends AppiumUtils implements ITestListener {
-	ExtentTest test;
 	ExtentReports extent = ExtentReportNG.getExtentReportObject();
 	AppiumDriver driver;
 

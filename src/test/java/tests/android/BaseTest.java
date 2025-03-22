@@ -9,6 +9,7 @@ import java.util.Properties;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 
+import com.aventstack.extentreports.ExtentTest;
 import com.utils.AppiumUtils;
 
 import io.appium.java_client.android.AndroidDriver;

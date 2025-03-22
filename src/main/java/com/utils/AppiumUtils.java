@@ -3,7 +3,6 @@ package com.utils;
 import java.io.File;
 import java.io.IOException;
 import java.time.Duration;
-import java.util.Base64;
 import java.util.HashMap;
 import java.util.List;
 
@@ -13,6 +12,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.aventstack.extentreports.ExtentTest;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -22,6 +22,7 @@ import io.appium.java_client.service.local.AppiumServiceBuilder;
 
 public class AppiumUtils {
 	AppiumDriverLocalService service;
+	public ExtentTest test;
 
 	public Double getFormattedAmount(String amountString) {
 		Double price = Double.parseDouble(amountString.substring(1));
@@ -35,9 +36,7 @@ public class AppiumUtils {
 	}
 
 	public List<HashMap<String, String>> getJsonData(String filePath) throws IOException {
-		byte[] filecontent = null;
-		filecontent = FileUtils.readFileToByteArray(new File(filePath));
-		String jsonContent = Base64.getEncoder().encodeToString(filecontent);
+		byte[] jsonContent = FileUtils.readFileToByteArray(new File(filePath));
 		ObjectMapper mapper = new ObjectMapper();
 		List<HashMap<String, String>> data = mapper.readValue(jsonContent,
 				new TypeReference<List<HashMap<String, String>>>() {
