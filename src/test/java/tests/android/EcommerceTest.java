@@ -37,7 +37,7 @@ public class EcommerceTest extends BaseTest {
 		formPage.verifyErrorMeesage();
 	}
 
-	@Test(priority = 2)
+	@Test(priority = 2, enabled = false)
 	public void addToCart() {
 		driver.findElement(AppiumBy
 				.androidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text(\"Jordan 6 Rings\"));"));
@@ -52,7 +52,7 @@ public class EcommerceTest extends BaseTest {
 		driver.findElement(By.id("com.androidsample.generalstore:id/appbar_btn_cart")).click();
 	}
 
-	@Test(priority = 3)
+	@Test(priority = 3, enabled = false)
 	public void verifyCart() {
 		WebElement cartText = driver.findElement(By.id("com.androidsample.generalstore:id/toolbar_title"));
 		applyWait(cartText, driver, "text", "Cart");
@@ -60,7 +60,7 @@ public class EcommerceTest extends BaseTest {
 		assertEquals(cartProduct, "Jordan 6 Rings");
 	}
 
-	@Test(priority = 4, enabled = false)
+	@Test(priority = 4)
 	public void verifyCartTotal() throws InterruptedException {
 		ProductCataloguePage productCataloguePage = new ProductCataloguePage(driver);
 		Thread.sleep(2000);
@@ -72,7 +72,7 @@ public class EcommerceTest extends BaseTest {
 		assertEquals(sumPrice, cartPrice);
 	}
 
-	@Test(priority = 5, enabled = false)
+	@Test(priority = 5)
 	public void termsAndConditions() throws InterruptedException {
 		CartPage cartPage = new CartPage(driver);
 		cartPage.readTerms();
