@@ -18,7 +18,7 @@ import pageObjects.android.FormPage;
 
 public class BaseTest extends AppiumUtils {
 
-	public static AppiumDriverLocalService service;
+	public AppiumDriverLocalService service;
 	public static AndroidDriver driver;
 	public FormPage formPage;
 
