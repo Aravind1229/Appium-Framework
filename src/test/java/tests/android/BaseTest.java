@@ -9,7 +9,6 @@ import java.util.Properties;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 
-import com.aventstack.extentreports.ExtentTest;
 import com.utils.AppiumUtils;
 
 import io.appium.java_client.android.AndroidDriver;
@@ -19,8 +18,8 @@ import pageObjects.android.FormPage;
 
 public class BaseTest extends AppiumUtils {
 
-	public AppiumDriverLocalService service;
-	public AndroidDriver driver;
+	public static AppiumDriverLocalService service;
+	public static AndroidDriver driver;
 	public FormPage formPage;
 
 	@BeforeSuite(alwaysRun = true)
